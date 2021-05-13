@@ -1,0 +1,46 @@
+<div class="ui celled five column grid">
+    <div class="row"></div>
+    <div class="column">${_station.name}</div>
+    <div class="column">Weather<br><br>${_station.weatherConditions}</div>
+    <div class="column">Temp<br><br>${_station.listTemp()} °C<br><br>${_station.celsiusToFahrenheit()}°F</div>
+    <div class="column">Wind<br><br>${_station.windToBeau} bft</div>
+    <div class="column">Pressure<br><br>${_station.listPressure()} hpa</div>
+</div>
+
+
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Temperature</th>
+        <th>Wind Speed</th>
+        <th>Wind Direction</th>
+        <th>Pressure</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    #{list items:_station.readings, as:'reading'}
+    <tr>
+        <td>
+            ${reading.getCode()}
+        </td>
+        <td>
+            ${reading.getTemperature()}
+        </td>
+        <td>
+            ${reading.getWindSpeed()}
+        </td>
+        <td>
+            ${reading.getWindDirection()}
+        </td>
+        <td>
+            ${reading.getPressure()}
+        </td>
+        <td>
+            <a href="/stations/${_station.id}/deletereading/${reading.id}" class="ui tiny red button">Delete Reading</a>
+        </td>
+    </tr>
+    #{/list}
+    </tbody>
+</table>
