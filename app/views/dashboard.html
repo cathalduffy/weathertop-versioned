@@ -8,18 +8,63 @@
     <h2 class="ui header">
         ${station.name}      <!--calling the station names from the constructor-->
     </h2>
-    <div class="ui celled five column grid">
+
+    <div class="ui five red inverted cards">
+
+        <div class="card">
+            <div class="extra">
+                <h2 class=header">${station.name}</h2>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="extra">
+                <h2 class=header">Weather</h2>
+                <h3 class="header">${station.weatherConditions}</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="extra">
+                <h2 class=header">Temp</h2>
+                <h3 class="header">${station.listTemp()}°C</h3>
+                <h3 class="header">${station.celsiusToFahrenheit()}°F</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="extra">
+                <h2 class=header">Wind</h2>
+                <h3 class="header">${station.windToBeau} bft</h3>
+                <h3 class="header">${station.windCompass}</h3>
+                <h3 class="header">${station.windChillCalculator()}</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="extra">
+                <h2 class=header">Pressure</h2>
+                <h3 class="header">${station.listPressure()} hpa</h3>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!--<div class="ui celled five column grid">
         <div class="row"></div>
         <div class="column">${station.name}</div>
         <div class="column">Weather<br><br>${station.weatherConditions}</div>
         <div class="column">Temp<br><br>${station.listTemp()} °C<br><br>${station.celsiusToFahrenheit()}°F</div>
-        <div class="column">Wind<br><br>${station.windToBeau} bft <br>${station.windCompass}<br>${station.windChillCalculator()}</div>
+        <div class="column">Wind<br><br>${station.windToBeau} bft <br>${station.windCompass}<br>${station.windChillCalculator()}
+        </div>
         <div class="column">Pressure<br><br>${station.listPressure()} hpa</div>
-    </div>
+    </div>-->
 
 
     <a href="/stations/${station.id}" class="ui icon button">
-    <i class = "icon folder open"></i>
+        <i class="icon folder open"></i>
     </a>
 
 </section>
