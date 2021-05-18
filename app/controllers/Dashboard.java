@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import models.Member;
 import models.Station;
 import models.Reading;
 import play.Logger;
@@ -17,7 +18,14 @@ import static models.Station.windDirectionCompass;
 public class Dashboard extends Controller {
 
     public static void index() {
-        List<Station> stations = Station.findAll(); //finding all Station from the db
+
+            Logger.info("Rendering Dashboard");
+            Member member = Accounts.getLoggedInMember();
+            List<Station> stations = ((Member) member).stations;
+            render("dashboard.html", member, stations);
+
+
+        stations = Station.findAll();
 
         for (Station station : stations) {
             if (station.readings.size() > 0) {

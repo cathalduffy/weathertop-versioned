@@ -4,6 +4,11 @@
 #{menu id:"dashboard"/}
 
 #{list items:stations, as:'station'}
+
+<header class="ui header">
+    ${member.firstname} ${member.lastname}'s Todo List
+</header>
+
 <section class="ui segment">
     <h2 class="ui header">
         ${station.name}      <!--calling the station names from the constructor-->
