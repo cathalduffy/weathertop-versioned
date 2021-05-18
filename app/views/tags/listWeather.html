@@ -3,37 +3,39 @@
     <div class="card">
         <div class="extra">
             <h3 class=header">${_station.name}</h3>
+            <p class="header">${_station.lat}</p>
+            <p class="header">${_station.lng}</p>
         </div>
     </div>
 
     <div class="card">
         <div class="extra">
             <h3 class=header">Weather</h3>
-            <h4 class="header">${_station.weatherConditions}</h4>
+            <p class="header">${_station.weatherConditions}</p>
         </div>
     </div>
 
     <div class="card">
         <div class="extra">
             <h3 class=header">Temp</h3>
-            <h4 class="header">${_station.listTemp()}°C</h4>
-            <h4 class="header">${_station.celsiusToFahrenheit()}°F</h4>
+            <p class="header">${_station.listTemp()}°C</p>
+            <p class="header">${_station.celsiusToFahrenheit()}°F</p>
         </div>
     </div>
 
     <div class="card">
         <div class="extra">
             <h3 class=header">Wind</h3>
-            <h4 class="header">${_station.windToBeau} bft</h4>
-            <h4 class="header">${_station.windCompass}</h4>
-            <h4 class="header">${_station.windChillCalculator()}</h4>
+            <p class="header">${_station.windToBeau} bft</p>
+            <p class="header">${_station.windCompass}</p>
+            <p class="header">${_station.windChillCalculator()}</p>
         </div>
     </div>
 
     <div class="card">
         <div class="extra">
             <h3 class=header">Pressure</h3>
-            <h4 class="header">${_station.listPressure()} hpa</h4>
+            <p class="header">${_station.listPressure()} hpa</p>
         </div>
     </div>
 
