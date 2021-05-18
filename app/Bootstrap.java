@@ -9,6 +9,6 @@ import models.*;
 @OnApplicationStart
 public class Bootstrap extends Job {
     public void doJob() {
-        Fixtures.loadModels("release1.yml");
+        Fixtures.loadModels("release2.yml");
     }
 }
