@@ -8,16 +8,14 @@ GET     /dashboard                              Dashboard.index
 
 GET     /dashboard                              StationCtrl.index
 
-
-
 GET     /about                                  About.index
 GET     /admin                                  Admin.index
 GET     /stations/{id}                          StationCtrl.index
 GET     /methods                                Dashboard.index
 
-
 POST    /stations/{id}/addreading               StationCtrl.addReading
 POST    /dashboard/addstation                   Dashboard.addStation
+GET     /stations/{id}/deletereading/{readingid}     StationCtrl.deleteReading
 
 GET    /signup                                  Accounts.signup
 GET    /login                                   Accounts.login

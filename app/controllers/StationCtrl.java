@@ -7,29 +7,23 @@ import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
 
-import static models.Station.codeToString;
-import static models.Station.windToBeaufort;
+import static models.Station.*;
 
 public class StationCtrl extends Controller
 {
 
     public static void index(Long id)
     {
-        Station station = Station.findById(id);
-        Logger.info ("Station id = " + id);
-        render("station.html", station);
+ //       Station station = Station.findById(id);
+        //        Logger.info ("Station id = " + id);
+        //        render("station.html", station);
 
-    }
-
-    public static void methods()
-    {
 
 
     }
 
 
-
-   /* public static void deletereading (Long id, Long readingid)
+    public static void deletereading (Long id, Long readingid)
     {
         Station station = Station.findById(id);
         Reading reading = Reading.findById(readingid);
@@ -37,8 +31,8 @@ public class StationCtrl extends Controller
         station.readings.remove(reading);
         station.save();
         reading.delete();
-        render("playlist.html", station);
-    }*/
+        render("station.html", station);
+    }
 
     public static void addReading(Long id, int code, float temperature, float windSpeed, int windDirection, int pressure)
     {

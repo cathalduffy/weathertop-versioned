@@ -2,6 +2,7 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -19,6 +20,7 @@ public class Station extends Model {
     public String weatherConditions;
     public int windToBeau;
     public String windCompass;
+    public String weatherIcon;
 
     public Station(String name, float lat, float lng) {
         this.name = name;
@@ -180,6 +182,20 @@ public class Station extends Model {
         }
     }
 
+    public static String weatherIcon(int code) {
+        HashMap<Integer, String> weatherIcons = new HashMap<>();
+        weatherIcons.put(100, "sun icon");
+        weatherIcons.put(200, "cloud sun icon");
+        weatherIcons.put(300, "cloud icon");
+        weatherIcons.put(400, "cloud rain icon");
+        weatherIcons.put(500, "cloud showers heavy icon");
+        weatherIcons.put(600, "snowflake icon");
+        weatherIcons.put(700, "snowflake icon");
+        weatherIcons.put(800, "poo storm icon");
+        return weatherIcons.get(code);
+    }
+
+
 
     public String getWeatherConditions() {
         return weatherConditions;
@@ -197,4 +213,7 @@ public class Station extends Model {
         this.windCompass = windCompass;
     }
 
+    public void setWeatherIcon(String weatherIcon) {
+        this.weatherIcon = weatherIcon;
+    }
 }

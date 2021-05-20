@@ -6,7 +6,7 @@
 #{list items:stations, as:'station'}
 
 <header class="ui header">
-    ${member.firstname} ${member.lastname}'s Todo List
+    ${member.firstname} ${member.lastname}'s Station
 </header>
 
 <section class="ui segment">
@@ -27,6 +27,7 @@
         <div class="card">
             <div class="extra">
                 <h3 class=header">Weather</h3>
+                <i class="${station.weatherIcon}"></i>
                 <p class="header">${station.weatherConditions}</p>
             </div>
         </div>
@@ -42,9 +43,10 @@
         <div class="card">
             <div class="extra">
                 <h3 class=header">Wind</h3>
-                <p class="header">${station.windToBeau} bft</p>
-                <p class="header">${station.windCompass}</p>
-                <p class="header">${station.windChillCalculator()}</p>
+                <p class="text">${station.windToBeau} bft</p>
+                <p class="text">${station.windCompass}</p>
+                <p class="text">Feels like</p>
+                <p class="text">${station.windChillCalculator()}</p>
             </div>
         </div>
 
@@ -57,17 +59,6 @@
 
 
     </div>
-
-
-    <!--<div class="ui celled five column grid">
-        <div class="row"></div>
-        <div class="column">${station.name}</div>
-        <div class="column">Weather<br><br>${station.weatherConditions}</div>
-        <div class="column">Temp<br><br>${station.listTemp()} °C<br><br>${station.celsiusToFahrenheit()}°F</div>
-        <div class="column">Wind<br><br>${station.windToBeau} bft <br>${station.windCompass}<br>${station.windChillCalculator()}
-        </div>
-        <div class="column">Pressure<br><br>${station.listPressure()} hpa</div>
-    </div>-->
 
 
     <a href="/stations/${station.id}" class="ui icon button">

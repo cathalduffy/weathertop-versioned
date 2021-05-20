@@ -13,6 +13,7 @@ import play.mvc.Controller;
 import static models.Station.codeToString;
 import static models.Station.windToBeaufort;
 import static models.Station.windDirectionCompass;
+import static models.Station.weatherIcon;
 
 
 public class Dashboard extends Controller {
@@ -22,10 +23,10 @@ public class Dashboard extends Controller {
             Logger.info("Rendering Dashboard");
             Member member = Accounts.getLoggedInMember();
             List<Station> stations = ((Member) member).stations;
-            render("dashboard.html", member, stations);
 
 
-        stations = Station.findAll();
+
+       stations = Station.findAll();
 
         for (Station station : stations) {
             if (station.readings.size() > 0) {
@@ -35,12 +36,14 @@ public class Dashboard extends Controller {
 
                 station.setWindCompass(windDirectionCompass(station.readings.get(station.readings.size() - 1).windDirection));
 
+                station.setWeatherIcon(weatherIcon(station.readings.get(station.readings.size() - 1).windDirection));
+
             }
         }
-        render("dashboard.html", stations);
-
+        render("dashboard.html", member, stations);
 
     }
+
 
 
     public static void addStation (String name, float lat, float lng)
