@@ -3,6 +3,7 @@
     <div class="card">
         <div class="extra">
             <h3 class=header">${_station.name}</h3>
+            <i class="right floated huge purple location arrow icon"></i>
             <p class="header">${_station.lat}</p>
             <p class="header">${_station.lng}</p>
         </div>
@@ -11,6 +12,7 @@
     <div class="card">
         <div class="extra">
             <h3 class=header">Weather</h3>
+            <i class="right floated huge red ${_station.weatherIcon}"></i>
             <p class="header">${_station.weatherConditions}</p>
         </div>
     </div>
@@ -18,6 +20,7 @@
     <div class="card">
         <div class="extra">
             <h3 class=header">Temp</h3>
+            <i class="right floated huge blue temperature low icon"></i>
             <p class="header">${_station.listTemp()}°C</p>
             <p class="header">${_station.celsiusToFahrenheit()}°F</p>
         </div>
@@ -26,8 +29,10 @@
     <div class="card">
         <div class="extra">
             <h3 class=header">Wind</h3>
+            <i class="right floated huge green wind icon"></i>
             <p class="header">${_station.windToBeau} bft</p>
             <p class="header">${_station.windCompass}</p>
+            <p class="text">Feels like</p>
             <p class="header">${_station.windChillCalculator()}</p>
         </div>
     </div>
@@ -35,6 +40,7 @@
     <div class="card">
         <div class="extra">
             <h3 class=header">Pressure</h3>
+            <i class="right floated huge orange snowflake icon"></i>
             <p class="header">${_station.listPressure()} hpa</p>
         </div>
     </div>
