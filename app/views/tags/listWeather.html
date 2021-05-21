@@ -23,6 +23,8 @@
             <i class="right floated huge blue temperature low icon"></i>
             <p class="header">${_station.listTemp()}°C</p>
             <p class="header">${_station.celsiusToFahrenheit()}°F</p>
+            <p class="header">Min: ${_station.smallestTemperature}</p>
+            <p class="header">Max: ${_station.largestTemperature}</p>
         </div>
     </div>
 
@@ -34,6 +36,8 @@
             <p class="header">${_station.windCompass}</p>
             <p class="text">Feels like</p>
             <p class="header">${_station.windChillCalculator()}</p>
+            <p class="header">Min: ${_station.smallestWindSpeed}</p>
+            <p class="header">Max: ${_station.largestWindSpeed}</p>
         </div>
     </div>
 
@@ -42,6 +46,8 @@
             <h3 class=header">Pressure</h3>
             <i class="right floated huge orange snowflake icon"></i>
             <p class="header">${_station.listPressure()} hpa</p>
+            <p class="header">Min: ${_station.smallestPressure}</p>
+            <p class="header">Max: ${_station.largestPressure}</p>
         </div>
     </div>
 

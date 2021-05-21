@@ -21,6 +21,13 @@ public class Station extends Model {
     public int windToBeau;
     public String windCompass;
     public String weatherIcon;
+    public float smallestTemperature;
+    public float largestTemperature;
+    public float smallestWindSpeed;
+    public float largestWindSpeed;
+    public int smallestPressure;
+    public int largestPressure;
+
 
     public Station(String name, float lat, float lng) {
         this.name = name;
@@ -176,7 +183,7 @@ public class Station extends Model {
             float t = this.readings.get(this.readings.size() - 1).temperature;
             float w = this.readings.get(this.readings.size() - 1).windSpeed;
 
-            windChill = (float) (13.12 + 0.6215 * t - 11.37 * Math.pow(w, 0.16) + 0.3965 * t * Math.pow(w , 0.16));
+            windChill = (float) (13.12 + 0.6215 * t - 11.37 * Math.pow(w, 0.16) + 0.3965 * t * Math.pow(w, 0.16));
 
             return windChill;
         }
@@ -187,14 +194,13 @@ public class Station extends Model {
         weatherIcons.put(100, "sun icon");
         weatherIcons.put(200, "cloud sun icon");
         weatherIcons.put(300, "cloud icon");
-        weatherIcons.put(400, "cloud rain icon");
+        weatherIcons.put(400, "cloud sun rain icon");
         weatherIcons.put(500, "cloud showers heavy icon");
-        weatherIcons.put(600, "snowflake icon");
+        weatherIcons.put(600, "cloud rain icon");
         weatherIcons.put(700, "snowflake icon");
         weatherIcons.put(800, "poo storm icon");
         return weatherIcons.get(code);
     }
-
 
 
     public String getWeatherConditions() {

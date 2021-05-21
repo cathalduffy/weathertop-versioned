@@ -6,6 +6,7 @@ import models.Station;
 import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
+import utils.StationAnalytics;
 
 import static models.Station.*;
 
@@ -25,6 +26,12 @@ public class StationCtrl extends Controller
 
                 station.setWeatherIcon(weatherIcon(station.readings.get(station.readings.size() - 1).windDirection));
 
+                station.smallestTemperature = StationAnalytics.getSmallestTemperature(station.readings);
+                station.largestTemperature = StationAnalytics.getLargestTemperature(station.readings);
+                station.smallestWindSpeed = StationAnalytics.getSmallestTWindSpeed(station.readings);
+                station.largestWindSpeed = StationAnalytics.getLargestTWindSpeed(station.readings);
+                station.smallestPressure = StationAnalytics.getSmallestTPressure(station.readings);
+                station.largestPressure = StationAnalytics.getLargestPressure(station.readings);
             }
         }
                Logger.info ("Station id = " + id);

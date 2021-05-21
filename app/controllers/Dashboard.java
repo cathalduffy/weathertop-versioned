@@ -15,6 +15,8 @@ import static models.Station.windToBeaufort;
 import static models.Station.windDirectionCompass;
 import static models.Station.weatherIcon;
 
+import utils.StationAnalytics;
+
 
 public class Dashboard extends Controller {
 
@@ -36,9 +38,16 @@ public class Dashboard extends Controller {
 
                 station.setWindCompass(windDirectionCompass(station.readings.get(station.readings.size() - 1).windDirection));
 
-                station.setWeatherIcon(weatherIcon(station.readings.get(station.readings.size() - 1).windDirection));
+                station.setWeatherIcon(weatherIcon(station.readings.get(station.readings.size() - 1).code));
 
+                station.smallestTemperature = StationAnalytics.getSmallestTemperature(station.readings);
+                station.largestTemperature = StationAnalytics.getLargestTemperature(station.readings);
+                station.smallestWindSpeed = StationAnalytics.getSmallestTWindSpeed(station.readings);
+                station.largestWindSpeed = StationAnalytics.getLargestTWindSpeed(station.readings);
+                station.smallestPressure = StationAnalytics.getSmallestTPressure(station.readings);
+                station.largestPressure = StationAnalytics.getLargestPressure(station.readings);
             }
+
         }
         render("dashboard.html", member, stations);
 
