@@ -24,7 +24,7 @@ public class StationCtrl extends Controller
 
                 station.setWindCompass(windDirectionCompass(station.readings.get(station.readings.size() - 1).windDirection));
 
-                station.setWeatherIcon(weatherIcon(station.readings.get(station.readings.size() - 1).windDirection));
+                station.setWeatherIcon(weatherIcon(station.readings.get(station.readings.size() - 1).code));
 
                 station.smallestTemperature = StationAnalytics.getSmallestTemperature(station.readings);
                 station.largestTemperature = StationAnalytics.getLargestTemperature(station.readings);
