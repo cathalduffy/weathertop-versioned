@@ -16,6 +16,7 @@ GET     /methods                                Dashboard.index
 POST    /stations/{id}/addreading               StationCtrl.addReading
 POST    /dashboard/addstation                   Dashboard.addStation
 GET     /stations/{id}/deletereading/{readingid}     StationCtrl.deleteReading
+GET     /dashboard/{id}/deletestation/{stationid}     Dashboard.deleteStation
 
 GET    /signup                                  Accounts.signup
 GET    /login                                   Accounts.login
