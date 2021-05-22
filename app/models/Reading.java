@@ -23,13 +23,15 @@ public class Reading extends Model {
         }
         this.temperature = temperature;
         this.windSpeed = windSpeed;
-        if(windDirection >= 0 && windDirection <= 360){
-        this.windDirection = windDirection;
-         }
+        if (windDirection >= 0 && windDirection <= 360) {
+            this.windDirection = windDirection;
+        }
         this.pressure = pressure;
     }
 
-    public Timestamp getTime(){return time;}
+    public Timestamp getTime() {
+        return time;
+    }
 
 
     public int getCode() {                       //getters

@@ -4,15 +4,12 @@ import models.Member;
 import play.Logger;
 import play.mvc.Controller;
 
-public class Accounts extends Controller
-{
-    public static void signup()
-    {
+public class Accounts extends Controller {
+    public static void signup() {
         render("signup.html");
     }
 
-    public static void login()
-    {
+    public static void login() {
         render("login.html");
     }
 
@@ -32,7 +29,7 @@ public class Accounts extends Controller
         if ((member != null) && (member.checkPassword(password) == true)) {
             Logger.info("Authentication successful");
             session.put("logged_in_Memberid", member.id);
-            redirect ("/dashboard");
+            redirect("/dashboard");
         } else {
             Logger.info("Authentication failed");
             redirect("/login");
@@ -52,9 +49,8 @@ public class Accounts extends Controller
         return member;
     }
 
-    public static void logout()
-    {
+    public static void logout() {
         session.clear();
-        redirect ("/");
+        redirect("/");
     }
 }

@@ -203,7 +203,6 @@ public class Station extends Model {
     }
 
 
-
     public String getWeatherConditions() {
         return weatherConditions;
     }

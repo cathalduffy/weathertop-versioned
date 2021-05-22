@@ -22,13 +22,12 @@ public class Dashboard extends Controller {
 
     public static void index() {
 
-            Logger.info("Rendering Dashboard");
-            Member member = Accounts.getLoggedInMember();
-            List<Station> stations = ((Member) member).stations;
+        Logger.info("Rendering Dashboard");
+        Member member = Accounts.getLoggedInMember();
+        List<Station> stations = ((Member) member).stations;
 
 
-
-       stations = Station.findAll();
+        stations = Station.findAll();
 
         for (Station station : stations) {
             if (station.readings.size() > 0) {
@@ -54,17 +53,14 @@ public class Dashboard extends Controller {
     }
 
 
-
-    public static void addStation (String name, float lat, float lng)
-    {
-        Station station = new Station (name, lat, lng);
-        Logger.info ("Adding a new station called " + name);
+    public static void addStation(String name, float lat, float lng) {
+        Station station = new Station(name, lat, lng);
+        Logger.info("Adding a new station called " + name);
         station.save();
-        redirect ("/dashboard");
+        redirect("/dashboard");
     }
 
-    public static void deleteStation(Long id, Long stationid)
-    {
+    public static void deleteStation(Long id, Long stationid) {
         Member member = Member.findById(id);
         Station station = Station.findById(stationid);
         member.stations.remove(station);
@@ -74,6 +70,6 @@ public class Dashboard extends Controller {
         redirect("/dashboard");
     }
 
-    }
+}
     
 
