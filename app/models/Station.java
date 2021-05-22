@@ -190,7 +190,7 @@ public class Station extends Model {
     }
 
     public static String weatherIcon(int code) {
-        HashMap<Integer, String> weatherIcons = new HashMap<>();
+        HashMap<Integer, String> weatherIcons = new HashMap<Integer, String>();
         weatherIcons.put(100, "sun icon");
         weatherIcons.put(200, "cloud sun icon");
         weatherIcons.put(300, "cloud icon");
