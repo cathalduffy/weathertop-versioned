@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-
+GET     /                                       Dashboard.index
 GET     /dashboard                              Dashboard.index
 
 GET     /dashboard                              StationCtrl.index
