@@ -13,7 +13,7 @@ public class Bootstrap extends Job
     {
         if (Member.count() == 0)
         {
-            Fixtures.loadModels("release2.yml");
+            Fixtures.loadModels("release3.yml");
         }
     }
 }
