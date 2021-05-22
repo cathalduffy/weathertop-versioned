@@ -4,16 +4,20 @@ import javax.persistence.Entity;
 
 import play.db.jpa.Model;
 
+import java.sql.Timestamp;
+
 @Entity
 public class Reading extends Model {
+    public Timestamp time;
     public int code;
     public float temperature;
     public float windSpeed;
     public int windDirection;
     public int pressure;
 
-    public Reading(int code, float temperature, float windSpeed, int windDirection, int pressure) // constructor
+    public Reading(Timestamp time, int code, float temperature, float windSpeed, int windDirection, int pressure) // constructor
     {
+        this.time = time;
         if (code >= 100 && code <= 800) {
             this.code = code;
         }
@@ -24,6 +28,8 @@ public class Reading extends Model {
          }
         this.pressure = pressure;
     }
+
+    public Timestamp getTime(){return time;}
 
 
     public int getCode() {                       //getters

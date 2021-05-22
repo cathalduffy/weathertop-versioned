@@ -58,6 +58,7 @@
 <table class="ui celled table">
     <thead>
     <tr>
+        <th>Time</th>
         <th>Code</th>
         <th>Temperature</th>
         <th>Wind Speed</th>
@@ -69,6 +70,9 @@
     <tbody>
     #{list items:_station.readings, as:'reading'}
     <tr>
+        <td>
+            ${reading.getTime()}
+        </td>
         <td>
             ${reading.getCode()}
         </td>

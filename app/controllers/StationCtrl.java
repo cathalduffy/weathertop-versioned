@@ -7,6 +7,7 @@ import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
 import utils.StationAnalytics;
+import java.sql.Timestamp;
 
 import static models.Station.*;
 
@@ -43,7 +44,6 @@ public class StationCtrl extends Controller
     {
         Station station = Station.findById(id);
         Reading reading = Reading.findById(readingid);
-        Logger.info ("Removing" + reading.code);
         station.readings.remove(reading);
         station.save();
         reading.delete();
@@ -52,8 +52,9 @@ public class StationCtrl extends Controller
 
     public static void addReading(Long id, int code, float temperature, float windSpeed, int windDirection, int pressure)
     {
-        Reading reading = new Reading(code, temperature, windSpeed, windDirection, pressure);
         Station station = Station.findById(id);
+        Timestamp time = new Timestamp(System.currentTimeMillis());
+        Reading reading = new Reading(time, code, temperature, windSpeed, windDirection, pressure);
         station.readings.add(reading);
         station.save();
         redirect ("/stations/" + id);
